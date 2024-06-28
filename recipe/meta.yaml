@@ -1,5 +1,5 @@
 {% set name = "dspy-ai" %}
-{% set version = "2.4.9" %}
+{% set version = "2.4.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/stanfordnlp/dspy/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: a4e608bea0b666d558a31e17ed3848ef936145aba917a5b1e52bb7632cbbb913
+  sha256: 06598d09a6b4ba8c4e58e7aebdf69c3adf4e0750f082d1a617bcc488db0cdc96
 
 build:
   noarch: python
@@ -27,15 +27,16 @@ requirements:
     - regex
     - ujson
     - tqdm
-    - datasets ~=2.14.6,<3.0.0
+    - datasets >=2.14.6,<3.0.0
     - requests
     - optuna
     - pydantic ~=2.0
     - structlog
+    - jinja2
   run_constrained:
     - anthropic ~=0.18.0
     - chromadb ~=0.4.14
-    - fastembed >=0.1.0
+    - fastembed >=0.2.0
     - marqo *
     - qdrant-client >=1.6.2
     - pinecone-client ~=2.2.4
