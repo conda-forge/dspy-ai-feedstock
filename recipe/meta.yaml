@@ -27,15 +27,16 @@ requirements:
     - regex
     - ujson
     - tqdm
-    - datasets ~=2.14.6,<3.0.0
+    - datasets >=2.14.6,<3.0.0
     - requests
     - optuna
     - pydantic ~=2.0
     - structlog
+    - jinja2
   run_constrained:
     - anthropic ~=0.18.0
     - chromadb ~=0.4.14
-    - fastembed >=0.1.0
+    - fastembed >=0.2.0
     - marqo *
     - qdrant-client >=1.6.2
     - pinecone-client ~=2.2.4
