@@ -1,5 +1,5 @@
 {% set name = "dspy-ai" %}
-{% set version = "2.4.13" %}
+{% set version = "2.4.14" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/stanfordnlp/dspy/archive/refs/tags/{{ version }}.tar.gz
-  sha256: e0327376b135ff72b16c13c989aeb5f72e34f787381fe396520d3f99b67956e1
+  sha256: 315f88d68b71011138b17001a21637f677425f154856659665dba87e6de37fc5
 
 build:
   noarch: python
@@ -33,6 +33,7 @@ requirements:
     - pydantic ~=2.0
     - structlog
     - jinja2
+    - magicattr
   run_constrained:
     - anthropic ~=0.18.0
     - chromadb ~=0.4.14
