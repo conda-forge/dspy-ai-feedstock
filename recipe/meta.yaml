@@ -34,6 +34,7 @@ requirements:
     - structlog
     - jinja2
     - magicattr
+    - diskcache
   run_constrained:
     - anthropic ~=0.18.0
     - chromadb ~=0.4.14
