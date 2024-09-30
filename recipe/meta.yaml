@@ -36,6 +36,7 @@ requirements:
     - jinja2
     - magicattr
     - diskcache
+    - litellm
   run_constrained:
     - anthropic ~=0.18.0
     - chromadb ~=0.4.14
