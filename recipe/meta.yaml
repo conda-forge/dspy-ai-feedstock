@@ -33,6 +33,7 @@ requirements:
     - pydantic ~=2.0
     - structlog
     - jinja2
+    - magicattr
   run_constrained:
     - anthropic ~=0.18.0
     - chromadb ~=0.4.14
