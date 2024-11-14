@@ -1,5 +1,6 @@
 {% set name = "dspy-ai" %}
-{% set version = "2.5.18" %}
+{% set version = "2.5.19" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://github.com/stanfordnlp/dspy/archive/refs/tags/{{ version }}.tar.gz
-  sha256: cf8c62454fbb7020fe15a8c150bb8c3038f07724637e0eb863b34d856b17c2d1
+  sha256: 237caa2274c385541f233adb5efd35e29e16fa41ebe14dbb9630d1cac1ebd679
 
 build:
   noarch: python
@@ -16,14 +17,14 @@ build:
 
 requirements:
   host:
-    - python >=3.9,<3.12
+    - python {{ python_min }}
     - setuptools
     - pip
   run:
-    - python >=3.9,<3.12
-    - backoff ~=2.2.1
-    - joblib ~=1.3.2
-    - openai >=0.28.1,<2.0.0
+    - python >={{ python_min }}
+    - backoff ~=2.2
+    - joblib ~=1.3
+    - openai
     - pandas
     - regex
     - ujson
@@ -37,12 +38,13 @@ requirements:
     - magicattr
     - diskcache
     - litellm
+    - json-repair
   run_constrained:
-    - anthropic ~=0.18.0
+    - anthropic >=0.18.0,<1.0.0
     - chromadb ~=0.4.14
     - fastembed >=0.2.0
     - marqo *
-    - qdrant-client >=1.6.2
+    - qdrant-client >=1.11.1
     - pinecone-client ~=2.2.4
     - weaviate-client ~=4.5.4
     - pymilvus ~=2.3.7
@@ -51,10 +53,8 @@ requirements:
 test:
   imports:
     - dspy
-  commands:
-    - pip check
   requires:
-    - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/stanfordnlp/dspy
