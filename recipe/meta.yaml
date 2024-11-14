@@ -22,9 +22,9 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - backoff ~=2.2.1
-    - joblib ~=1.3.2
-    - openai >=0.28.1,<2.0.0
+    - backoff ~=2.2
+    - joblib ~=1.3
+    - openai
     - pandas
     - regex
     - ujson
@@ -40,11 +40,11 @@ requirements:
     - litellm
     - json-repair
   run_constrained:
-    - anthropic ~=0.18.0
+    - anthropic >=0.18.0,<1.0.0
     - chromadb ~=0.4.14
     - fastembed >=0.2.0
     - marqo *
-    - qdrant-client >=1.6.2
+    - qdrant-client >=1.11.1
     - pinecone-client ~=2.2.4
     - weaviate-client ~=4.5.4
     - pymilvus ~=2.3.7
