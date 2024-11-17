@@ -39,6 +39,8 @@ requirements:
     - diskcache
     - litellm
     - json-repair
+    - asyncer
+    - anyio
   run_constrained:
     - anthropic >=0.18.0,<1.0.0
     - chromadb ~=0.4.14
