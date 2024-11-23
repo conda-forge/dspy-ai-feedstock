@@ -1,5 +1,5 @@
 {% set name = "dspy-ai" %}
-{% set version = "2.5.33" %}
+{% set version = "2.5.34" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/stanfordnlp/dspy/archive/refs/tags/{{ version }}.tar.gz
-  sha256: ec67a983afd8c46c2a875a5212bbc378d614ebb610c5505180f7ec5bd2d54071
+  sha256: 0e7501c83c4a799868a73494bb536aa5ef7335b138ca93fac70bb654faaa9f1b
 
 build:
   noarch: python
