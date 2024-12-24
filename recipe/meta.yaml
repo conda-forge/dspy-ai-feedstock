@@ -1,5 +1,5 @@
 {% set name = "dspy-ai" %}
-{% set version = "2.5.42" %}
+{% set version = "2.5.43" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/stanfordnlp/dspy/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 0eba0335e8abbd4dce94cb3d87ad70be0b7f9cbf439107d329d6503d1e491285
+  sha256: 727f33c39d32c7cf399741767f321dc7378550c611c5bc157c563fff60ff1201
 
 build:
   noarch: python
@@ -42,6 +42,7 @@ requirements:
     - asyncer
     - anyio
     - cachetools
+    - cloudpickle
   run_constrained:
     - anthropic >=0.18.0,<1.0.0
     - chromadb ~=0.4.14
