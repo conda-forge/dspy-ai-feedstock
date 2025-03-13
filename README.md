@@ -1,5 +1,5 @@
-About dspy-ai-feedstock
-=======================
+About dspy-feedstock
+====================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dspy-ai-feedstock/blob/main/LICENSE.txt)
 
@@ -18,11 +18,44 @@ Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table>
+    
+  <tr>
+    <td>Azure</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22311&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/dspy-ai-feedstock?branchName=main">
-      </a>
+      <details>
+        <summary>
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22311&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/dspy-ai-feedstock?branchName=main">
+          </a>
+        </summary>
+        <table>
+          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
+          <tbody><tr>
+              <td>linux_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22311&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/dspy-ai-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22311&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/dspy-ai-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22311&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/dspy-ai-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
     </td>
   </tr>
 </table>
@@ -32,53 +65,54 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-dspy-green.svg)](https://anaconda.org/conda-forge/dspy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dspy.svg)](https://anaconda.org/conda-forge/dspy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dspy.svg)](https://anaconda.org/conda-forge/dspy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dspy.svg)](https://anaconda.org/conda-forge/dspy) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-dspy--ai-green.svg)](https://anaconda.org/conda-forge/dspy-ai) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dspy-ai.svg)](https://anaconda.org/conda-forge/dspy-ai) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dspy-ai.svg)](https://anaconda.org/conda-forge/dspy-ai) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dspy-ai.svg)](https://anaconda.org/conda-forge/dspy-ai) |
 
-Installing dspy-ai
-==================
+Installing dspy
+===============
 
-Installing `dspy-ai` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `dspy` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `dspy-ai` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `dspy, dspy-ai` can be installed with `conda`:
 
 ```
-conda install dspy-ai
-```
-
-or with `mamba`:
-
-```
-mamba install dspy-ai
-```
-
-It is possible to list all of the versions of `dspy-ai` available on your platform with `conda`:
-
-```
-conda search dspy-ai --channel conda-forge
+conda install dspy dspy-ai
 ```
 
 or with `mamba`:
 
 ```
-mamba search dspy-ai --channel conda-forge
+mamba install dspy dspy-ai
+```
+
+It is possible to list all of the versions of `dspy` available on your platform with `conda`:
+
+```
+conda search dspy --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search dspy --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search dspy-ai --channel conda-forge
+mamba repoquery search dspy --channel conda-forge
 
-# List packages depending on `dspy-ai`:
-mamba repoquery whoneeds dspy-ai --channel conda-forge
+# List packages depending on `dspy`:
+mamba repoquery whoneeds dspy --channel conda-forge
 
-# List dependencies of `dspy-ai`:
-mamba repoquery depends dspy-ai --channel conda-forge
+# List dependencies of `dspy`:
+mamba repoquery depends dspy --channel conda-forge
 ```
 
 
@@ -123,17 +157,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating dspy-ai-feedstock
-==========================
+Updating dspy-feedstock
+=======================
 
-If you would like to improve the dspy-ai recipe or build a new
+If you would like to improve the dspy recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/dspy-ai-feedstock are
+Note that all branches in the conda-forge/dspy-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
