@@ -3,7 +3,7 @@
 {% set python_min = "3.9" %}
 
 package:
-  name: {{ name|lower }}
+  name: dspy-with-alias
   version: {{ version }}
 
 source:
@@ -13,7 +13,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -60,6 +60,10 @@ test:
   requires:
     - python {{ python_min }}
 
+outputs:
+  - name: dspy-ai
+  - name: dspy
+
 about:
   home: https://github.com/stanfordnlp/dspy
   summary: DSPy
@@ -70,5 +74,6 @@ about:
   doc_url: https://dspy-docs.vercel.app/
 
 extra:
+  feedstock-name: dspy
   recipe-maintainers:
     - mukhery
