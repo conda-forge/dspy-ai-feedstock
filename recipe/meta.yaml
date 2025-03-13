@@ -1,6 +1,5 @@
 {% set name = "dspy" %}
 {% set version = "2.6.11" %}
-{% set python_min = "3.9" %}
 
 package:
   name: dspy-with-alias
@@ -67,7 +66,10 @@ outputs:
     build:
       noarch: python
     requirements:
+      host:
+        - python {{ python_min }}
       run:
+        - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
     test:
       requires:
