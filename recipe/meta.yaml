@@ -1,4 +1,4 @@
-{% set name = "dspy-ai" %}
+{% set name = "dspy" %}
 {% set version = "2.6.11" %}
 {% set python_min = "3.9" %}
 
@@ -11,58 +11,69 @@ source:
   sha256: d359627b895315fc728cf277d916fb45b26d3d8c44532ef61e724b20d93f9e31
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 1
 
-requirements:
-  host:
-    - python {{ python_min }}
-    - setuptools
-    - pip
-  run:
-    - python >={{ python_min }}
-    - backoff ~=2.2
-    - joblib ~=1.3
-    - openai
-    - pandas
-    - regex
-    - ujson
-    - tqdm
-    - datasets >=2.14.6,<3.0.0
-    - requests
-    - optuna
-    - pydantic ~=2.0
-    - structlog
-    - jinja2
-    - magicattr
-    - diskcache
-    - litellm
-    - json-repair
-    - asyncer
-    - anyio
-    - cachetools
-    - cloudpickle
-  run_constrained:
-    - anthropic >=0.18.0,<1.0.0
-    - chromadb ~=0.4.14
-    - fastembed >=0.2.0
-    - marqo *
-    - qdrant-client >=1.11.1
-    - pinecone-client ~=2.2.4
-    - weaviate-client ~=4.5.4
-    - pymilvus ~=2.3.7
-    - boto3 ~=1.34.78
-
-test:
-  imports:
-    - dspy
-  requires:
-    - python {{ python_min }}
-
 outputs:
-  - name: dspy-ai
   - name: dspy
+    build:
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python {{ python_min }}
+        - setuptools
+        - pip
+      run:
+        - python >={{ python_min }}
+        - backoff ~=2.2
+        - joblib ~=1.3
+        - openai
+        - pandas
+        - regex
+        - ujson
+        - tqdm
+        - datasets >=2.14.6,<3.0.0
+        - requests
+        - optuna
+        - pydantic ~=2.0
+        - structlog
+        - jinja2
+        - magicattr
+        - diskcache
+        - litellm
+        - json-repair
+        - asyncer
+        - anyio
+        - cachetools
+        - cloudpickle
+      run_constrained:
+        - anthropic >=0.18.0,<1.0.0
+        - chromadb ~=0.4.14
+        - fastembed >=0.2.0
+        - marqo *
+        - qdrant-client >=1.11.1
+        - pinecone-client ~=2.2.4
+        - weaviate-client ~=4.5.4
+        - pymilvus ~=2.3.7
+        - boto3 ~=1.34.78
+    
+    test:
+      imports:
+        - dspy
+      requires:
+        - python {{ python_min }}
+  
+  - name: dspy-ai
+    build:
+      noarch: python
+    requirements:
+      run:
+        - {{ pin_subpackage(name, exact=True) }}
+    test:
+      requires:
+        - python {{ python_min }}
+      imports:
+        - dspy  
 
 about:
   home: https://github.com/stanfordnlp/dspy
