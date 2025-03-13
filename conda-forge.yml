@@ -1,4 +1,4 @@
-bot: {automerge: true}
+bot: {inspection: update-grayskull}
 conda_build: {error_overlinking: true}
 conda_forge_output_validation: true
 github: {branch_name: main, tooling_branch_name: main}
