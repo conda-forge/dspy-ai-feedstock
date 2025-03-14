@@ -1,5 +1,5 @@
 {% set name = "dspy" %}
-{% set version = "2.6.11" %}
+{% set version = "2.6.12" %}
 
 package:
   name: dspy-with-alias
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/stanfordnlp/dspy/archive/refs/tags/{{ version }}.tar.gz
-  sha256: d359627b895315fc728cf277d916fb45b26d3d8c44532ef61e724b20d93f9e31
+  sha256: 572d41b62552f192699041ae537a1c3d9d738e78960addfe142a3b4e1855b1a3
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - name: dspy
@@ -24,14 +24,14 @@ outputs:
         - pip
       run:
         - python >={{ python_min }}
-        - backoff ~=2.2
+        - backoff
         - joblib ~=1.3
         - openai
         - pandas
         - regex
         - ujson
         - tqdm
-        - datasets >=2.14.6,<3.0.0
+        - datasets >=2.14.6
         - requests
         - optuna
         - pydantic ~=2.0
@@ -41,8 +41,9 @@ outputs:
         - diskcache
         - litellm
         - json-repair
-        - asyncer
+        - tenacity >=8.2.3
         - anyio
+        - asyncer
         - cachetools
         - cloudpickle
       run_constrained:
@@ -55,13 +56,13 @@ outputs:
         - weaviate-client ~=4.5.4
         - pymilvus ~=2.3.7
         - boto3 ~=1.34.78
-    
+
     test:
       imports:
         - dspy
       requires:
         - python {{ python_min }}
-  
+
   - name: dspy-ai
     build:
       noarch: python
@@ -75,7 +76,7 @@ outputs:
       requires:
         - python {{ python_min }}
       imports:
-        - dspy  
+        - dspy
 
 about:
   home: https://github.com/stanfordnlp/dspy
