@@ -13,7 +13,6 @@ Documentation: https://dspy-docs.vercel.app/
 
 DSPy: The framework for programming—not prompting—foundation models
 
-
 Current build status
 ====================
 
@@ -149,5 +148,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@moritzwilksch](https://github.com/moritzwilksch/)
 * [@mukhery](https://github.com/mukhery/)
 
