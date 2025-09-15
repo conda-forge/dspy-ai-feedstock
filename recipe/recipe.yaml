@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dspy
-  version: 3.0.2
+  version: 3.0.3
   python_min: 3.10
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://github.com/stanfordnlp/dspy/archive/refs/tags/${{ version }}.tar.gz
-  sha256: 5da45b05abc6d454395ff2ecf173c6fd31e261baba4c5862c2292261eeabe5c5
+  sha256: 9794da1ee9d967d1b4029bde4eba70617f66ec2725e6e6970c70b3440c936803
 
 build:
   number: 0
