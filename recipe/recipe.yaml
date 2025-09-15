@@ -61,9 +61,6 @@ outputs:
           python_version: ${{ python_min }}.*
           imports:
             - dspy
-      # - requirements:
-      #     run:
-      #       - python ${{ python_min }}
   - package:
       name: dspy-ai
     build:
