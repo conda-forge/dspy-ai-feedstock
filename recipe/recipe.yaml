@@ -1,0 +1,101 @@
+schema_version: 1
+
+context:
+  name: dspy
+  version: 3.0.2
+  python_min: 3.10
+
+recipe:
+  name: dspy-with-alias
+  version: ${{ version }}
+
+source:
+  url: https://github.com/stanfordnlp/dspy/archive/refs/tags/${{ version }}.tar.gz
+  sha256: 5da45b05abc6d454395ff2ecf173c6fd31e261baba4c5862c2292261eeabe5c5
+
+build:
+  number: 0
+
+outputs:
+  - package:
+      name: dspy
+    build:
+      noarch: python
+      script: python -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - setuptools
+        - pip
+      run:
+        - python >=${{ python_min }}
+        - backoff
+        - joblib ~=1.3
+        - openai
+        - pandas
+        - regex
+        - ujson
+        - tqdm
+        - datasets >=2.14.6
+        - requests
+        - optuna
+        - pydantic ~=2.0
+        - structlog
+        - jinja2
+        - magicattr
+        - diskcache
+        - litellm
+        - json-repair
+        - tenacity >=8.2.3
+        - anyio
+        - asyncer
+        - cachetools
+        - cloudpickle
+        - rich
+      run_constraints:
+        - anthropic >=0.18.0,<1.0.0
+        - chromadb ~=0.4.14
+        - fastembed >=0.2.0
+        - marqo *
+        - qdrant-client >=1.11.1
+        - pinecone-client ~=2.2.4
+        - weaviate-client ~=4.5.4
+        - pymilvus ~=2.3.7
+        - boto3 ~=1.34.78
+    tests:
+      - python:
+          python_version: ${{ python_min }}.*
+          imports:
+            - dspy
+      # - requirements:
+      #     run:
+      #       - python ${{ python_min }}
+  - package:
+      name: dspy-ai
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+      run:
+        - python >=${{ python_min }}
+        - ${{ pin_subpackage(name, exact=True) }}
+    tests:
+      - python:
+          python_version: ${{ python_min }}.*
+          imports:
+            - dspy
+
+about:
+  summary: DSPy
+  description: |
+    DSPy: The framework for programming—not prompting—foundation models
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/stanfordnlp/dspy
+  documentation: https://dspy-docs.vercel.app/
+
+extra:
+  feedstock-name: dspy
+  recipe-maintainers:
+    - mukhery
