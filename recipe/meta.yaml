@@ -1,5 +1,5 @@
 {% set name = "dspy" %}
-{% set version = "3.0.2" %}
+{% set version = "3.1.2" %}
 
 package:
   name: dspy-with-alias
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/stanfordnlp/dspy/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 5da45b05abc6d454395ff2ecf173c6fd31e261baba4c5862c2292261eeabe5c5
+  sha256: 3ed85da7c7c7eb44db77733b2f5b06118a32ec509c7c161d8d6e14019aab04bb
 
 build:
   number: 0
