@@ -1,0 +1,93 @@
+schema_version: 1
+
+context:
+  name: dspy
+  version: 3.0.3
+  python_min: 3.10
+
+recipe:
+  name: dspy-with-alias
+  version: ${{ version }}
+
+source:
+  url: https://github.com/stanfordnlp/dspy/archive/refs/tags/${{ version }}.tar.gz
+  sha256: 9794da1ee9d967d1b4029bde4eba70617f66ec2725e6e6970c70b3440c936803
+
+build:
+  number: 0
+
+outputs:
+  - package:
+      name: dspy
+    build:
+      noarch: python
+      script: python -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - setuptools >=77.0.1
+        - pip
+      run:
+        - python >=${{ python_min }},<3.14
+        - backoff >=2.2
+        - joblib ~=1.3
+        - openai >=0.28.1
+        - regex >=2023.10.3
+        - orjson >=3.9.0
+        - tqdm >=4.66.1
+        - requests >=2.31.0
+        - optuna >=3.4.0
+        - pydantic >=2.0
+        - magicattr >=0.1.6
+        - litellm >=1.64.0
+        - diskcache >=5.6.0
+        - json-repair >=0.30.0
+        - tenacity >=8.2.3
+        - anyio
+        - asyncer ==0.0.8
+        - cachetools >=5.5.0
+        - cloudpickle >=3.0.0
+        - rich >=13.7.1
+        - numpy >=1.26.0
+        - python-xxhash >=3.5.0
+        - gepa ==0.0.12
+      run_constraints:
+        - anthropic >=0.18.0,<1.0.0
+        - weaviate-client ~=4.5.4
+        - mcp
+        - langchain_core
+    tests:
+      - python:
+          python_version: ${{ python_min }}.*
+          imports:
+            - dspy
+  - package:
+      name: dspy-ai
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+      run:
+        - python >=${{ python_min }},<3.14
+        - ${{ pin_subpackage(name, exact=True) }}
+    tests:
+      - python:
+          python_version: ${{ python_min }}.*
+          imports:
+            - dspy
+
+about:
+  summary: DSPy
+  description: |
+    DSPy: The framework for programming—not prompting—foundation models
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/stanfordnlp/dspy
+  documentation: https://dspy-docs.vercel.app/
+
+extra:
+  feedstock-name: dspy
+  recipe-maintainers:
+    - mukhery
+    - moritzwilksch
